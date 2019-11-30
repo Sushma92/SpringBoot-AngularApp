@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from './user';
 
 @Injectable()
 export class UserService {
@@ -15,7 +16,7 @@ export class UserService {
      return this.http.get<User[]>(this.usersUrl);
    }
 
-   public save(User: user){
-     return this.http.post<User[]>(this.usersUrl, user);
+   public save(user: User){
+     return this.http.post<User>(this.usersUrl, user);
    }
 }
